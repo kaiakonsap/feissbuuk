@@ -1,7 +1,6 @@
 function publish() {
 	//retrieve comments to display on page
 	//add click handler for button
-	alert("AAA");
 	//define ajax config object
 	var ajaxOpts =
 	{
@@ -10,12 +9,11 @@ function publish() {
 		url    : BASE_URL + 'timeline/index/',
 		data   : "&post=" + document.getElementById('post').value,
 		success: function (data) {
-			alert("OOOO");
-			//create a container for the new comment
-			$("<div>").addClass("comment").text($("#comment").find("textarea").val()).appendTo('#comments').hide().fadeIn("slow");
+		//create a container for the new comment
+			$("<div>").addClass("well well-small").text($("#my_post").find("textarea").val()).appendTo('#posts').hide().fadeIn("slow");
 
 			//empty inputs
-			$("#comment").find("textarea").val("");
+			$("#my_post").find("textarea").val("");
 		}
 	};
 	$.ajax(ajaxOpts);
