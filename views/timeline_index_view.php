@@ -8,4 +8,13 @@
 <button  onclick="publish()" id="add" >Postita</button>
 </div>
 <div id="posts"></div>
+	<div id="old_posts">
+		<table>
+			<?if(isset($posts[0]['text'])): foreach($posts as $post):?>
+			<tr>
+				<td class="well"> <?=$post['text']?></td>
+			</tr>
+			<?endforeach;endif?>
+		</table>
+	</div>
 </div>
