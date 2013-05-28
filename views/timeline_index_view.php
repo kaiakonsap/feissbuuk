@@ -7,14 +7,14 @@
 <textarea id="post" title="Millest mõtled?" name="post" placeholder="Millest mõtled?"   style="height: 48px;"></textarea>
 <button  onclick="publish()" id="add" >Postita</button>
 </div>
-<div id="posts"></div>
+<div id="posts"><ul class="ul"></ul></div>
 	<div id="old_posts">
-		<table>
+		<ul>
 			<?if(isset($posts[0]['text'])): foreach($posts as $post):?>
-			<tr>
-				<td class="well"> <?=$post['text']?></td>
-			</tr>
+			<li style="list-style-type: none; " class="well">
+				<p> <?=$post['text']?></p>
+			</li>
 			<?endforeach;endif?>
-		</table>
+		</ul>
 	</div>
 </div>

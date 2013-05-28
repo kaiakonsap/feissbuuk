@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7">
 <html class="no-js lt-ie9 lt-ie8">
@@ -29,6 +30,7 @@
 
 	<style>
 		body {
+		*{margin:0; padding:0;};
 			padding-top: 60px;
 		}
 		body, html {

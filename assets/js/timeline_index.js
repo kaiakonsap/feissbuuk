@@ -10,7 +10,7 @@ function publish() {
 		data   : "&post=" + document.getElementById('post').value,
 		success: function (data) {
 		//create a container for the new comment
-			$("<div>").addClass("well well-small").text($("#my_post").find("textarea").val()).appendTo('#posts').hide().fadeIn("slow");
+			$("<li>").addClass("well well-small").text($("#my_post").find("textarea").val()).appendTo('#posts').children().hide().fadeIn("slow");
 
 			//empty inputs
 			$("#my_post").find("textarea").val("");
