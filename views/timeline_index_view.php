@@ -7,12 +7,18 @@
 <textarea id="post" title="Millest mõtled?" name="post" placeholder="Millest mõtled?"   style="height: 48px;"></textarea>
 <button  onclick="publish()" id="add" >Postita</button>
 </div>
-<div id="posts"><ul class="ul"></ul></div>
+<div id="posts"><ul style="width: 20%"></ul></div>
 	<div id="old_posts">
-		<ul>
+		<ul style="margin: 0">
 			<?if(isset($posts[0]['text'])): foreach($posts as $post):?>
-			<li style="list-style-type: none; " class="well">
+			<li style="list-style-type: none;padding: 0; text-align:left;" class="well">
 				<p> <?=$post['text']?></p>
+
+				<?if(isset($comments[0]['text'])): foreach($comments as $comment):?>
+					<li>
+					<p> <?=$comment['text']?></p>
+					<li>
+				<?endforeach;endif?>
 			</li>
 			<?endforeach;endif?>
 		</ul>

@@ -312,7 +312,7 @@ dd {
 menu,
 ol,
 ul {
-    padding: 0 0 0 40px;
+    padding: 0 0 0 0px;
 }
 
 /**
@@ -324,7 +324,9 @@ nav ol {
     list-style: none;
     list-style-image: none;
 }
-
+nav {
+background-color: red;
+}
 /* ==========================================================================
    Embedded content
    ========================================================================== */

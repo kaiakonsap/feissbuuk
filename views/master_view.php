@@ -14,6 +14,7 @@
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
 	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="<?= ASSETS_URL ?>css/bootstrap.css" type="text/css">
 	<script src="<?=ASSETS_URL ?>js/vendor/modernizr-2.6.2.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="<?=ASSETS_URL?>js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
@@ -29,23 +30,29 @@
 	<?endif?>
 
 	<style>
+		*{margin:0;padding: 0};
 		body {
-		*{margin:0; padding:0;};
-			padding-top: 60px;
+
+			padding-top: 100px;
 		}
 		body, html {
-			background: url('<?=BASE_URL?>assets/img/iostexture.png');
+			background-color:#e9eaed ;
 			height: 100%;
 		}
 		table.table-bordered tr {
 			background-color: #f9f9f9;
 		}
+		.navbar-inner {
+			background-color: rgb(51, 51, 51);; /* fallback color, place your own */
+
+			/* Gradients for modern browsers, replace as you see fit */
+			}
 	</style>
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
+<div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#3b5999;">
+	<div class="navbar-inner" id="nav" style="background-color:#3b5999;">
+		<div class="container" style="background-color:#3b5999;">
 			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
