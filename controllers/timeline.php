@@ -13,7 +13,6 @@ class timeline
 
 		foreach($posts as &$post){
 			$post_id=$post['post_id'];
-			var_dump($post_id);
 			$comments= get_all("SELECT * FROM comment WHERE comment.post_id='$post_id' AND comment.deleted=0 ");
 			foreach($comments as $comment){
 				$post[]=['comment'=>$comments];
@@ -24,7 +23,6 @@ class timeline
 
 		if (isset($_POST["post"])) {
 			$post_text = $_POST["post"];
-			//var_dump($_POST);
 			$post_id = q("INSERT INTO post SET text = '$post_text', user_id = '$user_id'");
 		}
 

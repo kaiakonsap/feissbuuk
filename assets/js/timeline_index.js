@@ -19,10 +19,11 @@ function publish() {
 	};
 	$.ajax(ajaxOpts);
 }
-function publish_comment() {
+function publish_comment(post_id) {
 	//retrieve comments to display on page
 	//add click handler for button
 	//define ajax config object
+
 	var ajaxOpts =
 	{
 		type   : "post",

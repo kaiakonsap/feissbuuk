@@ -27,7 +27,7 @@
 						<div id="my_comment">
 							<textarea id="comment" title="Kommenteeri" name="comment" placeholder="Kommenteeri"   style="height:
 					48px;"></textarea>
-							<button  onclick="publish_comment()" id="add" >Postita</button>
+							<button  onclick="publish_comment(<?$post['post_id']?>)" id="add" >Postita</button>
 						</div>
 			<?endforeach;endif?>
 
