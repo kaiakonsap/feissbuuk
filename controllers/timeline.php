@@ -25,12 +25,12 @@ class timeline
 			$post_text = $_POST["post"];
 			$post_id = q("INSERT INTO post SET text = '$post_text', user_id = '$user_id'");
 		}
-
+;
 		if (isset($_POST["comment"])) {
-			$com_text = $_POST["comment"];
-			$postitus = '120';
-			$post_id = q(
-				"INSERT INTO comment SET text = '$com_text', user_id ='$user_id',post_id='120'");
+
+			$id=$request->params[0];
+			$the_post=$_POST["comment"] ;
+			$post_id = q("INSERT INTO comment SET text = '$the_post', user_id ='$user_id',post_id='$id'");
 		}
 
 		require 'views/master_view.php';

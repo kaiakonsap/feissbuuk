@@ -20,18 +20,15 @@ function publish() {
 	$.ajax(ajaxOpts);
 }
 function publish_comment(post_id) {
-	//retrieve comments to display on page
-	//add click handler for button
-	//define ajax config object
-
+//alert(post_id);
 	var ajaxOpts =
 	{
 		type   : "post",
-		url    : BASE_URL + 'timeline/index/',
+		url    : BASE_URL + 'timeline/index/'+post_id,
 		data   : "&comment=" + document.getElementById('comment').value,
 		success: function (data) {
 			//create a container for the new comment
-				$("<li>").addClass("well well-small").text($("#my_comment").find("textarea").val()).appendTo('#comments').children()
+			$("<li>").addClass("well well-small").text($("#my_comment").find("textarea").val()).appendTo('#comments').children()
 				.hide().fadeIn("slow");
 
 			//empty inputs
