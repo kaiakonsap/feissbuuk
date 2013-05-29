@@ -30,10 +30,10 @@
 	<?endif?>
 
 	<style>
-		*{margin:0;padding: 0};
+
 		body {
 
-			padding-top: 100px;
+			padding-top: 60px;
 		}
 		body, html {
 			background-color:#e9eaed ;
@@ -43,16 +43,15 @@
 			background-color: #f9f9f9;
 		}
 		.navbar-inner {
-			background-color: rgb(51, 51, 51);; /* fallback color, place your own */
 
-			/* Gradients for modern browsers, replace as you see fit */
-			}
+			background-color:#3b5999;/* Gradients for modern browsers, replace as you see fit */
+		}
 	</style>
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#3b5999;">
-	<div class="navbar-inner" id="nav" style="background-color:#3b5999;">
-		<div class="container" style="background-color:#3b5999;">
+	<div class="navbar-inner" id="nav" style="background-color:#3b5999; ">
+		<div class="container" style="background-color:#3b5999;color: white;">
 			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
