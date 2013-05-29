@@ -10,7 +10,7 @@ function publish() {
 		data   : "&post=" + document.getElementById('post').value,
 		success: function (data) {
 		//create a container for the new comment
-			$("<li>").addClass("well well-small").text($("#my_post").find("textarea").val()).appendTo('#posts').children()
+			$("<div>").addClass("well well-small").text($("#my_post").find("textarea").val()).appendTo('#posts').children()
 				.hide().fadeIn("slow");
 
 			//empty inputs
@@ -20,7 +20,7 @@ function publish() {
 	$.ajax(ajaxOpts);
 }
 function publish_comment(post_id) {
-//alert(post_id);
+
 	var ajaxOpts =
 	{
 		type   : "post",
@@ -28,7 +28,7 @@ function publish_comment(post_id) {
 		data   : "&comment=" + document.getElementById('comment').value,
 		success: function (data) {
 			//create a container for the new comment
-			$("<li>").addClass("well well-small").text($("#my_comment").find("textarea").val()).appendTo('#comments').children()
+			$("<div>").addClass("well well-small").text($("#my_comment").find("textarea").val()).appendTo('#comments').children()
 				.hide().fadeIn("slow");
 
 			//empty inputs
