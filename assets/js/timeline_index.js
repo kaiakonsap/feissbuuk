@@ -35,3 +35,10 @@ function publish_comment(post_id) {
 	};
 	$.ajax(ajaxOpts);
 };
+
+like(post_id)
+{
+	var count=0;
+	count++;
+
+}

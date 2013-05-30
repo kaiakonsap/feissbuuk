@@ -14,18 +14,19 @@ class timeline
 		foreach($posts as &$post){
 			$post_id=$post['post_id'];
 			$comments= get_all("SELECT * FROM comment WHERE comment.post_id='$post_id' AND comment.deleted=0 ");
+			//$likes= get_all("SELECT * FROM liked WHERE liked.post_id='$post_id' AND liked.deleted=0 ");
+			var_dump($post['likes']);
 			foreach($comments as $comment){
 				$post[]=['comment'=>$comments];
 			}
 
 		}
-		//die(var_dump($posts));
 
 		if (isset($_POST["post"])) {
 			$post_text = $_POST["post"];
 			$post_id = q("INSERT INTO post SET text = '$post_text', user_id = '$user_id'");
 		}
-;
+		;
 		if (isset($_POST["comment"])) {
 
 			$id=$request->params[0];
