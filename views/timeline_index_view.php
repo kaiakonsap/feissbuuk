@@ -9,25 +9,31 @@
 	</div>
 	<div id="posts"></div>
 
+
 	<div id="old_posts">
 
 		<?if(isset($posts[0]['text'])): foreach($posts as $post):?>
-			<div style="padding: 10px; text-align:left;background-color:powderblue; width: 33%" class="well" id="<?=$post['post_id']?>">
+			<div style="padding: 10px; text-align:left;background-color:powderblue; width: 33%" class="well" id="post<?=$post['post_id']?>">
 				<img style="float: left; margin-right: 20px;" src="<?=ASSETS_URL?>images/q.jpg" alt="profile pic">
 				<p> <?=$post['text']?></p>
-
-				<? if(isset($post['likes'])):?>
-					<p style="float: right"><?=$post['likes']?></p>
-					<img style="float: right; margin-right: 10px;" src="<?=ASSETS_URL?>images/like.png" alt="like pic">
-				<?endif?>
-
-				<button   >meeldib!</button>
-				<button  onclick="comment(<?=$post['post_id']?>)">kommenteeri!</button>
+				<p id="like_post" style="float: right"><?if(isset($post['likes'])&&$post['likes']!="0"){echo $post['likes'];}
+					else {echo
+				0;}?></p>
+				<img style="float: right; margin-right: 10px;" src="<?=ASSETS_URL?>images/like.png" alt="like pic">
+				<button  onclick="likes_post(<?=$post['post_id']?>,<?=$post['likes']?>)" >meeldib!</button>
+				<button  >kommenteeri!</button>
 
 
 				<? if(isset($post[0]['comment'])):foreach($post[0]['comment'] as	$comment):?>
-					<div style="padding: 10px;margin-top: 0px;background-color: lavenderblush; text-align:left;"class="well">
+					<div style="padding: 10px;margin-top: 0px;background-color: lavenderblush; text-align:left;"class="well" id="com<?=$comment['comment_id']?>">
 						<p> <?=$comment['text']?></p>
+						<p id="like_com" style="float: right"><?if(isset($comment['likes'])&&$comment['likes']!="0"){echo
+							$comment['likes'];}
+							else {echo
+							0;}?></p>
+						<img style="float: right; margin-right: 10px;" src="<?=ASSETS_URL?>images/like.png" alt="like pic">
+
+						<button  onclick="likes_com(<?=$comment['comment_id']?>,<?=$comment['likes']?>)" >meeldib!</button>
 					</div>
 				<?endforeach;endif?>
 

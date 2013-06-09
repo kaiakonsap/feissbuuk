@@ -15,7 +15,7 @@ class timeline
 			$post_id=$post['post_id'];
 			$comments= get_all("SELECT * FROM comment WHERE comment.post_id='$post_id' AND comment.deleted=0 ");
 			//$likes= get_all("SELECT * FROM liked WHERE liked.post_id='$post_id' AND liked.deleted=0 ");
-			var_dump($post['likes']);
+			//var_dump($post['likes']);
 			foreach($comments as $comment){
 				$post[]=['comment'=>$comments];
 			}
@@ -25,13 +25,23 @@ class timeline
 		if (isset($_POST["post"])) {
 			$post_text = $_POST["post"];
 			$post_id = q("INSERT INTO post SET text = '$post_text', user_id = '$user_id'");
-		}
-		;
-		if (isset($_POST["comment"])) {
+				}
 
+		if (isset($_POST["comment"])) {
 			$id=$request->params[0];
 			$the_post=$_POST["comment"] ;
-			$post_id = q("INSERT INTO comment SET text = '$the_post', user_id ='$user_id',post_id='$id'");
+			$comment_id = q("INSERT INTO comment SET text = '$the_post', user_id ='$user_id',post_id='$id'");
+		}
+
+		if (isset($_POST["likes_post"])) {
+			$id=$request->params[0];
+			$likes = $_POST["likes_post"];
+			$post_id = q("UPDATE post SET likes = '$likes' WHERE post_id='$id'");
+		}
+		if (isset($_POST["likes_com"])) {
+			$id=$request->params[0];
+			$likes = $_POST["likes_com"];
+			$comment_id = q("UPDATE comment SET likes = '$likes' WHERE comment_id='$id'");
 		}
 
 		require 'views/master_view.php';
