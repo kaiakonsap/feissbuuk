@@ -25,7 +25,8 @@
 
 
 				<? if(isset($post[0]['comment'])):foreach($post[0]['comment'] as	$comment):?>
-					<div style="padding: 10px;margin-top: 0px;background-color: lavenderblush; text-align:left;"class="well" id="com<?=$comment['comment_id']?>">
+
+					<div style="padding: 10px;margin-top: 0px;background-color: lavenderblush; text-align:left;"class="well" id="old_com<?=$comment['comment_id']?>">
 						<p> <?=$comment['text']?></p>
 						<p id="like_com" style="float: right"><?if(isset($comment['likes'])&&$comment['likes']!="0"){echo
 							$comment['likes'];}
@@ -37,13 +38,10 @@
 					</div>
 				<?endforeach;endif?>
 
-				<div id="comments"></div>
-				<div id="<?=$post['post_id']?>">
-					<div id="<?=$post['post_id']?>com"></div>
-					<textarea id="comment" title="Kommenteeri" name="comment" placeholder="Kommenteeri"   style="height:
+			<div id="new_com<?=$post['post_id']?>"></div>
+					<textarea id="comment<?=$post['post_id']?>" title="Kommenteeri" name="comment" placeholder="Kommenteeri"   style="height:
 					48px;"></textarea>
 					<button  onclick="publish_comment(<?=$post['post_id']?>)" id="add" >Postita</button>
-				</div>
 			</div>
 		<?endforeach;endif?>
 

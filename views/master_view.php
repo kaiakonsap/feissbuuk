@@ -49,7 +49,7 @@
 	</style>
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#3b5999;">
+<div class="navbar " style="background-color:#3b5999;position: fixed;top: 0px;width: 100%">
 	<div class="navbar-inner" id="nav" style="background-color:#3b5999; ">
 		<div class="container" style="background-color:#3b5999;color: white;">
 			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">

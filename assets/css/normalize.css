@@ -16,7 +16,6 @@ figure,
 footer,
 header,
 hgroup,
-main,
 nav,
 section,
 summary {
@@ -325,7 +324,7 @@ nav ol {
     list-style-image: none;
 }
 nav {
-background-color: red;
+background-color: blue !important;
 }
 /* ==========================================================================
    Embedded content

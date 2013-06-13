@@ -5,7 +5,7 @@ class timeline
 	function index()
 	{
 		global $request;
-		$this->scripts[] = 'timeline_index.js';
+		$this->scripts[] = 'add_index.js';
 		$user_id = $_SESSION['user_id'];
 		//siits saan kõik selle konkreetse kasutaja postitused, posti id ka
 		$posts = get_all(
@@ -19,18 +19,26 @@ class timeline
 			foreach($comments as $comment){
 				$post[]=['comment'=>$comments];
 			}
-
 		}
+		require 'views/master_view.php';
+	}
 
+	function add()
+	{
+		$user_id = $_SESSION['user_id'];
+		global $request;
 		if (isset($_POST["post"])) {
 			$post_text = $_POST["post"];
 			$post_id = q("INSERT INTO post SET text = '$post_text', user_id = '$user_id'");
-				}
+			echo $post_id;
+		}
 
 		if (isset($_POST["comment"])) {
 			$id=$request->params[0];
 			$the_post=$_POST["comment"] ;
 			$comment_id = q("INSERT INTO comment SET text = '$the_post', user_id ='$user_id',post_id='$id'");
+			echo $comment_id;
+
 		}
 
 		if (isset($_POST["likes_post"])) {
@@ -43,7 +51,5 @@ class timeline
 			$likes = $_POST["likes_com"];
 			$comment_id = q("UPDATE comment SET likes = '$likes' WHERE comment_id='$id'");
 		}
-
-		require 'views/master_view.php';
 	}
 }
