@@ -50,14 +50,15 @@
 </head>
 <body>
 <div class="navbar " style="background-color:#3b5999;position: fixed;top: 0px;width: 100%">
-	<div class="navbar-inner" id="nav" style="background-color:#3b5999; ">
-		<div class="container" style="background-color:#3b5999;color: white;">
-			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+
+		<div class="container" style="background-color:#3b5999;color: white; padding-left: 100px">
+			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="
+			.nav-collapse">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="brand" href="<?=BASE_URL?>">Feissar</a>
+			<a class="brand" style="color: #f5f5f5;font-family: verdana,arial,sans-serif;" href="<?=BASE_URL?>">Kaiabook</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
 					<li class="active"><a href="<?=BASE_URL?>tests">Esimene leht</a></li>
@@ -66,7 +67,7 @@
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
-	</div>
+
 </div>
 <div>
 	<?php

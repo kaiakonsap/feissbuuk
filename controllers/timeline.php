@@ -6,6 +6,8 @@ class timeline
 	{
 		global $request;
 		$this->scripts[] = 'add_index.js';
+		$this->scripts[] = 'edit_delete.js';
+
 		$user_id = $_SESSION['user_id'];
 		//siits saan kõik selle konkreetse kasutaja postitused, posti id ka
 		$posts = get_all(
@@ -50,6 +52,21 @@ class timeline
 			$id=$request->params[0];
 			$likes = $_POST["likes_com"];
 			$comment_id = q("UPDATE comment SET likes = '$likes' WHERE comment_id='$id'");
+		}
+	}
+	function edit()
+	{
+		if (isset($_POST['deletes_post']))
+		{
+			$id=$_POST['deletes_post'];
+			$post_del = q("UPDATE post SET deleted =1 WHERE post_id='$id'");
+
+		}
+		if (isset($_POST['deletes_com']))
+		{
+			$id=$_POST['deletes_com'];
+			$post_del = q("UPDATE comment SET deleted =1 WHERE comment_id='$id'");
+
 		}
 	}
 }

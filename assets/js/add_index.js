@@ -20,7 +20,7 @@ function publish() {
 				'<p>'+post_text+'</p>'+
 				'<p id="like_post" style="float: right">0</p>'+
 				'<img style="float: right; margin-right: 10px;" src="'+BASE_URL+'assets/images/like.png" alt="like pic">'+
-				'<button onclick="likes_post('+post_id+',0)">Like!</button></div>');
+				'<button onclick="likes_post('+post_id+',0)">Meeldib!</button></div>');
 
 			//empty inputs
 			$("#my_post").find("textarea").val("");
@@ -49,7 +49,7 @@ function publish_comment(post_id) {
 				'<p>'+com_text+'</p>'+
 				'<p id="like_com" style="float: right">0</p>'+
 				'<img style="float: right; margin-right: 10px;" src="'+BASE_URL+'assets/images/like.png" alt="like pic">'+
-				'<button onclick="likes_com('+comment_id+',0)">Like!</button>');
+				'<button onclick="likes_com('+comment_id+',0)">Meeldib!</button>');
 
 			$('#comment'+post_id).val("");
 		}
