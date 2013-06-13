@@ -47,6 +47,8 @@ function publish_comment(post_id) {
 			$('#new_com'+post_id).prepend('<div id="old_com'+comment_id+
 				'" class="well well-small">'+
 				'<p>'+com_text+'</p>'+
+				'<p id="like_com" style="float: right">0</p>'+
+				'<img style="float: right; margin-right: 10px;" src="'+BASE_URL+'assets/images/like.png" alt="like pic">'+
 				'<button onclick="likes_com('+comment_id+',0)">Like!</button>');
 
 			$('#comment'+post_id).val("");
@@ -83,7 +85,7 @@ function likes_com(comment_id,likes)
 		success: function (data) {
 //likeda saab ainult yhe korra, selle kasutaja jaoks tuleb see konkreetne nupp disable panna
 			//likede jaoks eraldi tabel kus on see likenud kasutaja, siis saab kontrollida
-			$('#com'+comment_id).find("#like_com").text(likes);
+			$('#old_com'+comment_id).find("#like_com").text(likes);
 		}
 	};
 	$.ajax(ajaxOpts);
