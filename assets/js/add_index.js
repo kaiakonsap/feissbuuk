@@ -10,16 +10,17 @@ function publish() {
 		success: function (data) {
 			var post_id=data;
 		//create a container for the new comment
-			$("<div>").addClass("well well-small").text($("#my_post").find("textarea").val()).appendTo('#posts').hide().fadeIn("slow");
+			//$("<div>").addClass("well well-small").text($("#my_post").find("textarea").val()).appendTo('#posts').hide().fadeIn("slow");
 
-			var button = document.createElement("button");
-			//	var string="'publish_comment('+post_id+')'";
-			///kuidagi o vaja siia saada postituse id
-			button.innerHTML = "Click on me!";
-			button.onclick = function(){
-				likes_post(post_id,0);return false;
-			};
-			$('#posts').append(button);
+			var post_text=document.getElementById('post').value;
+
+			$('#old_posts').prepend('<div id="post'+post_id+
+				'" class="well well-small"'+
+				'style="padding: 10px; text-align:left;background-color:powderblue; width: 33%">'+
+				'<p>'+post_text+'</p>'+
+				'<p id="like_post" style="float: right">0</p>'+
+				'<img style="float: right; margin-right: 10px;" src="'+BASE_URL+'assets/images/like.png" alt="like pic">'+
+				'<button onclick="likes_post('+post_id+',0)">Like!</button></div>');
 
 			//empty inputs
 			$("#my_post").find("textarea").val("");
@@ -42,7 +43,6 @@ function publish_comment(post_id) {
 
 			//var com_text=$('#comment'+post_id).value;
 			var com_text=document.getElementById('comment'+post_id).value;
-			alert(com_text);
 
 			$('#new_com'+post_id).prepend('<div id="old_com'+comment_id+
 				'" class="well well-small">'+
