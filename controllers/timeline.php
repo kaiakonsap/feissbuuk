@@ -1,12 +1,15 @@
 <?php
 class timeline
 {
+	public $requires_auth = true;
 
 	function index()
 	{
+		global $_user;
 		global $request;
 		$this->scripts[] = 'add_index.js';
 		$this->scripts[] = 'edit_delete.js';
+		$this->scripts[] = 'mouse_over.js';
 
 		$user_id = $_SESSION['user_id'];
 		//siits saan kõik selle konkreetse kasutaja postitused, posti id ka
@@ -21,6 +24,7 @@ class timeline
 			foreach($comments as $comment){
 				$post[]=['comment'=>$comments];
 			}
+
 		}
 		require 'views/master_view.php';
 	}
@@ -69,4 +73,6 @@ class timeline
 
 		}
 	}
+
+
 }

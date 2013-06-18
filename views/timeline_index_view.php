@@ -15,7 +15,8 @@
 		<?if(isset($posts[0]['text'])): foreach($posts as $post):?>
 			<div style="padding: 10px; text-align:left;background-color:powderblue; width: 33%" class="well" id="post<?=$post['post_id']?>">
 				<img style="float: left; margin-right: 20px;" src="<?=ASSETS_URL?>images/q.jpg" alt="profile pic">
-				<i class="icon-pencil" style="float: right" onclick="delete_post(<?=$post['post_id']?>)"></i>
+				<i class="icon-pencil" style="float: right;opacity:0.1;filter:alpha(opacity=10);"
+				   onclick="delete_post(<?=$post['post_id']?>)"></i>
 				<p> <?=$post['text']?></p>
 				<p id="like_post" style="float: right"><?if(isset($post['likes'])&&$post['likes']!="0"){echo $post['likes'];}
 					else {echo
@@ -28,7 +29,10 @@
 				<? if(isset($post[0]['comment'])):foreach($post[0]['comment'] as	$comment):?>
 
 					<div style="padding: 10px;margin-top: 0px;background-color: lavenderblush; text-align:left;"class="well" id="old_com<?=$comment['comment_id']?>">
-						<i class="icon-remove-circle" style="float: right" onclick="delete_com(<?=$comment['comment_id']?>)"></i>
+						<i class="icon-remove-circle"
+						   style="float: right;opacity:0.4;filter:alpha(opacity=40);" onclick="delete_com
+							(<?=$comment['comment_id']?>)
+							"></i>
 						<p> <?=$comment['text']?></p>
 						<p id="like_com" style="float: right"><?if(isset($comment['likes'])&&$comment['likes']!="0"){echo
 							$comment['likes'];}
