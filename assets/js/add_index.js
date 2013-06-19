@@ -64,7 +64,7 @@ function likes_post(post_id,likes)
 	{
 		type   : "post",
 		url    : BASE_URL + 'timeline/add/'+post_id,
-		data   : "&likes_post=" + likes,
+		data   : "&likes_post=" + 1,
 		success: function (data) {
 
 			$('#post'+post_id).find("#like_post").text(likes);
@@ -81,7 +81,7 @@ function likes_com(comment_id,likes)
 	{
 		type   : "post",
 		url    : BASE_URL + 'timeline/add/'+comment_id,
-		data   : "&likes_com=" + likes,
+		data   : "&likes_com=" + 1,
 		success: function (data) {
 //likeda saab ainult yhe korra, selle kasutaja jaoks tuleb see konkreetne nupp disable panna
 			//likede jaoks eraldi tabel kus on see likenud kasutaja, siis saab kontrollida

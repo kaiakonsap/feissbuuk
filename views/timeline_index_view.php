@@ -22,7 +22,10 @@
 					else {echo
 				0;}?></p>
 				<img style="float: right; margin-right: 10px;" src="<?=ASSETS_URL?>images/like.png" alt="like pic">
-				<button  onclick="likes_post(<?=$post['post_id']?>,<?=$post['likes']?>)" >meeldib!</button>
+				<button  onclick="likes_post(<?=$post['post_id']?>,
+				<?=$post['likes']?>)" > <?if(isset($post['user_liked'])&& $post['user_liked']=='0'): echo
+					$post['user_liked']?>meeldib! <?else: echo "Eemalda meeldimine!";endif;
+					?></button>
 				<button  >kommenteeri!</button>
 
 
@@ -30,9 +33,7 @@
 
 					<div style="padding: 10px;margin-top: 0px;background-color: lavenderblush; text-align:left;"class="well" id="old_com<?=$comment['comment_id']?>">
 						<i class="icon-remove-circle"
-						   style="float: right;opacity:0.4;filter:alpha(opacity=40);" onclick="delete_com
-							(<?=$comment['comment_id']?>)
-							"></i>
+						   style="float: right;opacity:0.4;filter:alpha(opacity=40);" onclick="delete_com(<?=$comment['comment_id']?>)"></i>
 						<p> <?=$comment['text']?></p>
 						<p id="like_com" style="float: right"><?if(isset($comment['likes'])&&$comment['likes']!="0"){echo
 							$comment['likes'];}
@@ -40,7 +41,9 @@
 							0;}?></p>
 						<img style="float: right; margin-right: 10px;" src="<?=ASSETS_URL?>images/like.png" alt="like pic">
 
-						<button  onclick="likes_com(<?=$comment['comment_id']?>,<?=$comment['likes']?>)" >meeldib!</button>
+						<button onclick="likes_com(<?=$comment['comment_id']?>,
+						<?=$comment['likes']?>)"><?if(isset($comment['user_liked'])&& $comment['user_liked']=='0'):?>
+						        meeldib! <? else:?> Eemalda meeldimine!<?endif;?></button>
 					</div>
 				<?endforeach;endif?>
 
