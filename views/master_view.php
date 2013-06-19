@@ -32,12 +32,15 @@
 	<style>
 
 		body {
-
 			padding-top: 60px;
 		}
 		body, html {
 			background-color:#e9eaed ;
 			height: 100%;
+		}
+		body p
+		{
+			font-size: 11px;
 		}
 		table.table-bordered tr {
 			background-color: #f9f9f9;

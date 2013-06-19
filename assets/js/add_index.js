@@ -16,11 +16,13 @@ function publish() {
 
 			$('#old_posts').prepend('<div id="post'+post_id+
 				'" class="well well-small"'+
-				'style="padding: 10px; text-align:left;background-color:powderblue; width: 33%">'+
+				'style="padding: 10px; text-align:left;background-color:rgb(250, 251, 251); width: 33%">'+
+				'<i class="icon-pencil" style="cursor:pointer;float: right;opacity:0.1;filter:alpha(opacity=10)"'+
+				'onclick="delete_post('+post_id+')"></i>'+
 				'<p>'+post_text+'</p>'+
 				'<p id="like_post" style="float: right">0</p>'+
 				'<img style="float: right; margin-right: 10px;" src="'+BASE_URL+'assets/images/like.png" alt="like pic">'+
-				'<button onclick="likes_post('+post_id+',0)">Meeldib!</button></div>');
+				'<p style="cursor:pointer;color:#3b5998;" onclick="likes_post('+post_id+',0)">Meeldib!</p></div>');
 
 			//empty inputs
 			$("#my_post").find("textarea").val("");
@@ -49,7 +51,7 @@ function publish_comment(post_id) {
 				'<p>'+com_text+'</p>'+
 				'<p id="like_com" style="float: right">0</p>'+
 				'<img style="float: right; margin-right: 10px;" src="'+BASE_URL+'assets/images/like.png" alt="like pic">'+
-				'<button onclick="likes_com('+comment_id+',0)">Meeldib!</button>');
+				'<p style="cursor:pointer;color:#3b5998;" onclick="likes_com('+comment_id+',0)">Meeldib!</p>');
 
 			$('#comment'+post_id).val("");
 		}
