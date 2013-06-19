@@ -19,10 +19,8 @@ class timeline
 		foreach($posts as &$post){
 			$post_id=$post['post_id'];
 			$comments= get_all("SELECT * FROM comment WHERE comment.post_id='$post_id' AND comment.deleted=0");
-			$likes= get_all("SELECT COUNT(user_id) as 'number' FROM likes_post WHERE likes_post
-			.post_id='$post_id' AND likes_post.deleted=0 ");
-			$user_liked=get_one("SELECT num as 'liked' FROM likes_post WHERE likes_post.post_id='$post_id' AND likes_post
-			.user_id='$user_id' ");
+			$likes= get_all("SELECT COUNT(user_id) as 'number' FROM likes_post WHERE likes_post.post_id='$post_id' AND likes_post.deleted=0 ");
+			$user_liked=get_one("SELECT num as 'liked' FROM likes_post WHERE likes_post.post_id='$post_id' AND likes_post.user_id='$user_id' AND likes_post.deleted=0 ");
 
 		//	var_dump($user_liked);
 
@@ -34,7 +32,7 @@ class timeline
 
 				$likes= get_all("SELECT COUNT(user_id) as 'number' FROM likes_com WHERE likes_com.com_id='$com_id' AND likes_com.deleted=0 ");
 				$user_liked=get_one("SELECT num as 'liked' FROM likes_com WHERE likes_com.com_id='$com_id' AND
-				likes_com.user_id='$user_id' ");
+				likes_com.user_id='$user_id' AND likes_com.deleted=0");
 				$comment['likes']=$likes[0]['number'];
 				$comment['user_liked']=$user_liked;
 
@@ -77,6 +75,8 @@ class timeline
 	}
 	function edit()
 	{
+		$user_id = $_SESSION['user_id'];
+
 		if (isset($_POST['deletes_post']))
 		{
 			$id=$_POST['deletes_post'];
@@ -88,6 +88,16 @@ class timeline
 			$id=$_POST['deletes_com'];
 			$post_del = q("UPDATE comment SET deleted =1 WHERE comment_id='$id'");
 
+		}
+		if (isset($_POST['deletes_post_like']))
+		{
+			$id=$_POST['deletes_post_like'];
+			$likepost_del = q("UPDATE likes_post SET deleted =1 WHERE post_id='$id' AND user_id='$user_id'");
+		}
+		if (isset($_POST['deletes_com_like']))
+		{
+			$id=$_POST['deletes_com_like'];
+			$likecom_del = q("UPDATE likes_com SET deleted =1 WHERE com_id='$id' AND user_id='$user_id'");
 		}
 	}
 
