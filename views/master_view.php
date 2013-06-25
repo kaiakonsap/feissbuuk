@@ -52,7 +52,7 @@
 	</style>
 </head>
 <body>
-<div class="navbar " style="background-color:#3b5999;position: fixed;top: 0px;width: 100%">
+<div class="navbar " style="background-color:#3b5999;z-index:1000;position: fixed;top: 0px;width: 100%">
 
 		<div class="container" style="background-color:#3b5999;color: white; padding-left: 100px">
 			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="
@@ -64,7 +64,7 @@
 			<a class="brand" style="color: #f5f5f5;font-family: verdana,arial,sans-serif;" href="<?=BASE_URL?>">Kaiabook</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
-					<li class="active"><a href="<?=BASE_URL?>tests">Esimene leht</a></li>
+					<li class="active"><a href="<?=BASE_URL?>">Esimene leht</a></li>
 					<li><a href="#about">Info</a></li>
 					<li><a href="<?=BASE_URL?>auth/logout">Logi välja</a></li>
 				</ul>

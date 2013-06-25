@@ -70,6 +70,8 @@ function likes_post(post_id,likes)
 		success: function (data) {
 
 			$('#post'+post_id).find("#like_post").text(likes);
+			$('#post'+post_id).find('#like_unlike').text('Eemalda meeldimine!');
+			//document.getElementById('like_unlike'+post_id).onClick=delete_post_like(post_id);
 		}
 	};
 	$.ajax(ajaxOpts);
@@ -93,4 +95,11 @@ function likes_com(comment_id,likes)
 	$.ajax(ajaxOpts);
 
 
+}
+function commentbox(post_id)
+{
+	$('#post'+post_id).append('<textarea id="comment'+post_id+
+		'" title="Kommenteeri" name="comment" placeholder="Kommenteeri"'+
+	'style="height:48px;font-size:11px"></textarea>'+
+		'<button  onclick="publish_comment('+post_id+')" id="add" >Postita</button>');
 }

@@ -1,6 +1,7 @@
 <div id="contain" style="width: 80%; margin-left:auto; margin-right:auto;">
-	<img style="text-align: center;margin-bottom:100px ;" src="<?=ASSETS_URL?>images/kaanepilt.png" alt="profile pic">
-	<img style="z-index: 10000; position:relative;top: 25% ;right: 65%;" src="<?=ASSETS_URL?>images/q.jpg" alt="profile pic">
+	<img style="text-align: center;margin-bottom:50px ;" src="<?=ASSETS_URL?>images/kaanepilt.png" alt="profile
+	pic">
+	<img style="position:absolute;top: 23% ;right: 85%;" src="<?=ASSETS_URL?>images/q.jpg" alt="profile pic">
 	<h1>Kaia Konsap</h1>
 
 	<div id="my_post">
@@ -23,9 +24,9 @@
 				<p id="like_post" style="float: right"><?if(isset($post['likes'])&&$post['likes']!="0"){echo $post['likes'];}
 					else {echo
 				0;}?></p>
-				<div style="display: inline" id=op>
+
 				<img style="float: right; margin-right: 10px;" src="<?=ASSETS_URL?>images/like.png" alt="like pic">
-				<p style="float:left;padding-right:5px;cursor:pointer;color:#3b5998;" <?if(isset
+				<p id="like_unlike" style="float:left;padding-right:5px;cursor:pointer;color:#3b5998;" <?if(isset
 				($post['user_liked'])&&
 					$post['user_liked']=='0')
 				:?>onclick="likes_post
@@ -33,8 +34,8 @@
 				<?=$post['likes']?>)" >meeldib! <?else:?> onclick="delete_post_like(<?=$post['post_id']?>,
 						<?=$post['likes']?>)" >Eemalda meeldimine!<?endif;
 					?></p>
-				<p style="cursor:pointer;color:#3b5998;"  >kommenteeri!</p>
-				</div>
+				<p style="cursor:pointer;color:#3b5998;" onclick="commentbox(<?=$post['post_id']?>)" >kommenteeri!</p>
+
 
 				<? if(isset($post[0]['comment'])):foreach($post[0]['comment'] as	$comment):?>
 
@@ -58,9 +59,11 @@
 				<?endforeach;endif?>
 
 			<div id="new_com<?=$post['post_id']?>"></div>
+				<?if(isset($post['likes'])&&$post['likes']>=1 ):?>
 					<textarea id="comment<?=$post['post_id']?>" title="Kommenteeri" name="comment" placeholder="Kommenteeri"
 					          style="height:48px;font-size:11px"></textarea>
 					<button  onclick="publish_comment(<?=$post['post_id']?>)" id="add" >Postita</button>
+				<?endif;?>
 			</div>
 		<?endforeach;endif?>
 
