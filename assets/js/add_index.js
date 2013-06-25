@@ -102,4 +102,5 @@ function commentbox(post_id)
 		'" title="Kommenteeri" name="comment" placeholder="Kommenteeri"'+
 	'style="height:48px;font-size:11px"></textarea>'+
 		'<button  onclick="publish_comment('+post_id+')" id="add" >Postita</button>');
+	$('#comment'+post_id).focus();
 }

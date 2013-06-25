@@ -9,7 +9,7 @@ class timeline
 		global $request;
 		$this->scripts[] = 'add_index.js';
 		$this->scripts[] = 'edit_delete.js';
-		$this->scripts[] = 'mouse_over.js';
+		$this->scripts[] = 'mouse_events.js';
 		$user_id = $_SESSION['user_id'];
 		//siits saan kõik selle konkreetse kasutaja postitused, posti id ka
 		$posts = get_all(

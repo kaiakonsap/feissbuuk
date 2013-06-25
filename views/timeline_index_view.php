@@ -34,8 +34,13 @@
 				<?=$post['likes']?>)" >meeldib! <?else:?> onclick="delete_post_like(<?=$post['post_id']?>,
 						<?=$post['likes']?>)" >Eemalda meeldimine!<?endif;
 					?></p>
-				<p style="cursor:pointer;color:#3b5998;" onclick="commentbox(<?=$post['post_id']?>)" >kommenteeri!</p>
-
+				<p style="cursor:pointer;color:#3b5998;"
+					<?if(isset($post['likes'])&&$post['likes']>=1 ):?>
+					onclick="SelectText(<?=$post['post_id']?>)"
+					<?else:?>
+                   onclick="commentbox(<?=$post['post_id']?>)"
+					<?endif?>
+					>kommenteeri!</p>
 
 				<? if(isset($post[0]['comment'])):foreach($post[0]['comment'] as	$comment):?>
 
@@ -49,7 +54,8 @@
 							0;}?></p>
 						<img style="float: right; margin-right: 10px;" src="<?=ASSETS_URL?>images/like.png" alt="like pic">
 
-						<p style="cursor:pointer;color:#3b5998;" <?if(isset($comment['user_liked'])&& $comment['user_liked']=='0'):?> onclick="likes_com
+						<p style="cursor:pointer;color:#3b5998;"
+							<?if(isset($comment['user_liked'])&& $comment['user_liked']=='0'):?> onclick="likes_com
 							(<?=$comment['comment_id']?>,
 						<?=$comment['likes']?>)">
 						        meeldib! <? else:?> onclick="delete_com_like

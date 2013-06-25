@@ -12,3 +12,9 @@ $(document).ready(function(){
 
 
 })
+
+function SelectText (post_id) {
+	var input = document.getElementById('comment'+post_id);
+	input.focus();
+	input.setSelectionRange(2,5);
+}
