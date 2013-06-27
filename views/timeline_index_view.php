@@ -21,10 +21,11 @@
 				<i class="icon-pencil" style="cursor:pointer;float: right;opacity:0.1;filter:alpha(opacity=10);"
 				   onclick="delete_post(<?=$post['post_id']?>)"></i>
 				<p> <?=$post['text']?></p>
-				<p id="like_post" style="float: right"><?if(isset($post['likes'])&&$post['likes']!="0"){echo $post['likes'];}
-					else {echo
-				0;}?></p>
-
+				<?if(isset($post['likes'])&&$post['likes']!="0"):?>
+				<p id="like_post" style="float: right"><?=$post['likes']?></p>
+				<?else:?>
+				<p id="like_post" style="float: right;visibility:hidden;">0</p>
+				<?endif;?>
 				<img style="float: right; margin-right: 10px;" src="<?=ASSETS_URL?>images/like.png" alt="like pic">
 				<p id="like_unlike" style="float:left;padding-right:5px;cursor:pointer;color:#3b5998;" <?if(isset
 				($post['user_liked'])&&
@@ -48,10 +49,12 @@
 						<i class="icon-remove-circle "
 						   style="float: right;opacity:0.4;filter:alpha(opacity=40);cursor:pointer" onclick="delete_com(<?=$comment['comment_id']?>)"></i>
 						<p> <?=$comment['text']?></p>
-						<p id="like_com" style="float: right"><?if(isset($comment['likes'])&&$comment['likes']!="0"){echo
-							$comment['likes'];}
-							else {echo
-							0;}?></p>
+						<?if(isset($comment['likes'])&&$comment['likes']!="0"):?>
+						<p id="like_com" style="float: right"><?=$comment['likes']?></p>
+							<?else:?>
+						<p id="like_com" style="float: right;visibility: hidden">0</p>
+						<?endif?>
+
 						<img style="float: right; margin-right: 10px;" src="<?=ASSETS_URL?>images/like.png" alt="like pic">
 
 						<p style="cursor:pointer;color:#3b5998;"

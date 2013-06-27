@@ -20,9 +20,11 @@ function publish() {
 				'<i class="icon-pencil" style="cursor:pointer;float: right;opacity:0.1;filter:alpha(opacity=10)"'+
 				'onclick="delete_post('+post_id+')"></i>'+
 				'<p>'+post_text+'</p>'+
-				'<p id="like_post" style="float: right">0</p>'+
+				'<p id="like_post" style="visibility:hidden;float: right">0</p>'+
 				'<img style="float: right; margin-right: 10px;" src="'+BASE_URL+'assets/images/like.png" alt="like pic">'+
-				'<p style="cursor:pointer;color:#3b5998;" onclick="likes_post('+post_id+',0)">Meeldib!</p></div>');
+				'<p style="cursor:pointer;color:#3b5998;" onclick="likes_post('+post_id+',0)">Meeldib!</p>'+
+				'<p style="cursor:pointer;color:#3b5998;" onclick="commentbox('+post_id+')">kommenteeri!</p>'+
+				'<div id="new_com'+post_id+'"></div></div>');
 
 			//empty inputs
 			$("#my_post").find("textarea").val("");
@@ -49,7 +51,7 @@ function publish_comment(post_id) {
 			$('#new_com'+post_id).prepend('<div id="old_com'+comment_id+
 				'" class="well well-small">'+
 				'<p>'+com_text+'</p>'+
-				'<p id="like_com" style="float: right">0</p>'+
+				'<p id="like_com" style="visibility:hidden;float: right">0</p>'+
 				'<img style="float: right; margin-right: 10px;" src="'+BASE_URL+'assets/images/like.png" alt="like pic">'+
 				'<p style="cursor:pointer;color:#3b5998;" onclick="likes_com('+comment_id+',0)">Meeldib!</p>');
 
@@ -69,7 +71,7 @@ function likes_post(post_id,likes)
 		data   : "&likes_post=" + 1,
 		success: function (data) {
 
-			$('#post'+post_id).find("#like_post").text(likes);
+			$('#post'+post_id).find("#like_post").text(likes).css("visibility","visible");
 			$('#post'+post_id).find('#like_unlike').text('Eemalda meeldimine!');
 			//document.getElementById('like_unlike'+post_id).onClick=delete_post_like(post_id);
 		}
@@ -89,7 +91,7 @@ function likes_com(comment_id,likes)
 		success: function (data) {
 //likeda saab ainult yhe korra, selle kasutaja jaoks tuleb see konkreetne nupp disable panna
 			//likede jaoks eraldi tabel kus on see likenud kasutaja, siis saab kontrollida
-			$('#old_com'+comment_id).find("#like_com").text(likes);
+			$('#old_com'+comment_id).find("#like_com").text(likes).css("visibility","visible");
 		}
 	};
 	$.ajax(ajaxOpts);
