@@ -25,7 +25,7 @@ function publish() {
 				'onclick="delete_post('+post_id+')"></i>'+
 				'<p>'+post_text+'</p>'+
 				'<p id="like_post" style="visibility:hidden;float: right">0</p>'+
-				'<img style="float: right; margin-right: 10px;" src="'+BASE_URL+'assets/images/like.png" alt="like pic">'+
+				'<img id="post_thumb" style="visibility:hidden;float: right; margin-right: 10px;" src="'+BASE_URL+'assets/images/like.png" alt="like pic">'+
 				'<p style="cursor:pointer;color:#3b5998;" onclick="likes_post('+post_id+',0)">Meeldib!</p>'+
 				'<p style="cursor:pointer;color:#3b5998;" onclick="commentbox('+post_id+')">kommenteeri!</p>'+
 				'<div id="new_com'+post_id+'"></div></div>');
@@ -63,9 +63,9 @@ function publish_comment(post_id) {
 				'" class="well well-small">'+
 				'<p>'+com_text+'</p>'+
 				'<p id="like_com" style="visibility:hidden;float: right">0</p>'+
-				'<img style="float: right; margin-right: 10px;" src="'+BASE_URL+'assets/images/like.png" alt="like pic">'+
+				'<img id="com_thumb" style="visibility:hidden;float: right; margin-right: 10px;" src="'+BASE_URL+'assets/images/like.png" alt="like pic">'+
 				'<p style="cursor:pointer;color:#3b5998;" onclick="likes_com('+comment_id+',0)">Meeldib!</p>');
-
+				///siin panen kaasa ainult ühe funktsiooni!!!!!! teist oleks ka vaja
 			$('#comment'+post_id).val("");
 		}
 	};
@@ -88,7 +88,9 @@ function likes_post(post_id,likes)
 		success: function (data) {
 
 			$('#post'+post_id).find("#like_post").text(likes).css("visibility","visible");
-			$('#post'+post_id).find('#like_unlike').text('Eemalda meeldimine!');
+			$('#post'+post_id).find("#post_thumb").css("visibility","visible");
+			$('#post'+post_id).find('#post_like_unlike').text('Eemalda meeldimine!');
+			//siia peaks fun ktsionaalsus tulema
 			//document.getElementById('like_unlike'+post_id).onClick=delete_post_like(post_id);
 		}
 	};
@@ -108,6 +110,8 @@ function likes_com(comment_id,likes)
 //likeda saab ainult yhe korra, selle kasutaja jaoks tuleb see konkreetne nupp disable panna
 			//likede jaoks eraldi tabel kus on see likenud kasutaja, siis saab kontrollida
 			$('#old_com'+comment_id).find("#like_com").text(likes).css("visibility","visible");
+			$('#old_com'+comment_id).find("#com_thumb").css("visibility","visible");
+			$('#old_com'+comment_id).find('#com_like_unlike').text('Eemalda meeldimine!');
 		}
 	};
 	$.ajax(ajaxOpts);

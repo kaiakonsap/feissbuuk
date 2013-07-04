@@ -1,7 +1,7 @@
 <?php
 class timeline
 {
-	public $requires_auth = true;
+	public $requires_auth = TRUE;
 
 	function index()
 	{
@@ -14,7 +14,11 @@ class timeline
 		//siits saan kõik selle konkreetse kasutaja postitused, posti id ka
 		$posts = get_all(
 			"SELECT * FROM post WHERE post.user_id ='$user_id' AND post.deleted=0  ORDER BY post.post_id DESC");
-
+		/**
+		 * Uue postituse korral ja commmidel saab 2x likeda! javascript ei tööta hästi
+		 * eemalda meeldimise taga pole funktsionaalsust javascriptis vähemasti\
+		 * äsjaloodud kommentaaril puuduv unlike funktsioon
+		 */
 
 		foreach($posts as &$post){
 			$post_id=$post['post_id'];

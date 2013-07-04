@@ -49,6 +49,12 @@
 
 			background-color:#3b5999;/* Gradients for modern browsers, replace as you see fit */
 		}
+		.visible{
+		visibility: visible;
+		}
+		.not_visible{
+			visibility: hidden;
+		}
 	</style>
 </head>
 <body>
