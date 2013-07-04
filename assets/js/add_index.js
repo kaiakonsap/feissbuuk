@@ -2,6 +2,10 @@ function publish() {
 	//retrieve comments to display on page
 	//add click handler for button
 	//define ajax config object
+	var str=document.getElementById('post').value;
+
+	if(str.length > 0&& $.trim(str)!='')
+	{
 	var ajaxOpts =
 	{
 		type   : "post",
@@ -31,9 +35,16 @@ function publish() {
 		}
 	};
 	$.ajax(ajaxOpts);
+	}
+	else
+	{ alert("Post is empty");
+		$("#my_post").find("textarea").val("");
+	}
 }
 function publish_comment(post_id) {
-
+	var str=document.getElementById('comment'+post_id).value;
+	if(str.length > 0&& $.trim(str)!='')
+	{
 	var ajaxOpts =
 	{
 		type   : "post",
@@ -59,6 +70,11 @@ function publish_comment(post_id) {
 		}
 	};
 	$.ajax(ajaxOpts);
+	}
+	else{
+		alert("Where is your comment?");
+		$('#comment'+post_id).val("");
+	}
 };
 
 function likes_post(post_id,likes)
