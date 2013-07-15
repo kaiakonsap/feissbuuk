@@ -18,6 +18,8 @@ class timeline
 		 * Uue postituse korral ja commmidel saab 2x likeda! javascript ei tööta hästi
 		 * eemalda meeldimise taga pole funktsionaalsust javascriptis vähemasti\
 		 * äsjaloodud kommentaaril puuduv unlike funktsioon
+		 * kommenteeri nupp vajab kontrolli,et ehk on juba üks tekstikast olemas
+		 * Lisa postitustele/commidele aeg
 		 */
 
 		foreach($posts as &$post){

@@ -10,7 +10,6 @@
 	<!-- Le styles -->
 	<style type="text/css">
 		body {
-			padding-top: 40px;
 			padding-bottom: 40px;
 			background-color: #f5f5f5;
 		}
@@ -56,20 +55,44 @@
 	<link rel="shortcut icon" href="../assets/ico/favicon.png">
 </head>
 
-<body style="background-image: url(assets/img/iostexture.png)">
+<body>
 
-<div class="container">
 
-	<form method="post" class="form-signin">
-		<h2 class="form-signin-heading">Logi sisse</h2>
-		<input name="username" type="text" class="input-block-level" placeholder="kasutajanimi">
-		<input name="password" type="password" class="input-block-level" placeholder="parool">
+	<div class="heading" style="background-color:#3b5999;color: white; width: 100%;">
+
+	<div  style="padding: 2% 5% 5% 5%">
+
+<div class="pull-right">
+	<form method="post" class="form-inline">
+		<input name="username" type="text" class="input-small"  placeholder="kasutajanimi">
+		<input name="password" type="password" class="input-small"  placeholder="parool">
 		<label class="checkbox">
 			<input type="checkbox" value="remember-me"> Pea mind meeles
 		</label>
 		<button class="btn btn-large btn-primary" type="submit">Logi sisse</button>
 	</form>
-
+</div>
+		<h1 class="pull-left">facebook</h1>
+	</div>
+		</div>
+		<div class="container">
+	<div class="pull-right">
+		<h1>Liitu!</h1>
+		<form method="post" class="form-signin"style="border: none" >
+			<div class="control-group">
+			<input name="firstname" type="text" class="input-small"  placeholder="eesnimi">
+			<input name="lastname" type="text" class="input-medium"  placeholder="perekonnanimi">
+			<input name="password" type="password" class="input-block-level" placeholder="salasõna">
+			<h4>Sünnipäev</h4>
+			<input type="date" name="bdaytime">
+			<label class="radio">
+				<input type="radio" value="male"> Mees<br>
+				<input type="radio" value="female"> Naine
+			</label>
+				</div>
+			<button class="btn btn-large btn-primary" type="submit">Liitu</button>
+		</form>
+	</div>
 </div> <!-- /container -->
 </body>
 </html>

@@ -20,6 +20,16 @@ class auth {
 			} //sisuliselt else
 			$errors[] = "Vale kasutajanimi või parool";
 		}
+		if (isset($_POST['firstname'])&&isset($_POST['lastname'])&&isset($_POST['password'])){
+		$newuser=$_POST['firstname']." ".$_POST['lastname'];
+			$the_password=$_POST['password'];
+			$id=q("INSERT INTO user SET username='$newuser',password='$the_password'");
+		if(!empty($id)){
+			$_SESSION['user_id']=$id;
+			$request->redirect('facebook');
+		}
+		}
+
 		require 'views/auth_view.php';
 	}
 	function logout(){
