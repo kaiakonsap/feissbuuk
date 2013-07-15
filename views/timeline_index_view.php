@@ -1,7 +1,11 @@
 <div id="contain" style="width: 80%; margin-left:auto; margin-right:auto;">
-	<img style="text-align: center;margin-bottom:50px ;" src="<?= ASSETS_URL ?>images/kaanepilt.png" alt="profile
-	pic">
-	<img style="position:absolute;top: 23% ;right: 85%;" src="<?= ASSETS_URL ?>images/q.jpg" alt="profile pic">
+	<div id="cover">
+	<a id="cover_pic" href="#"><img style="text-align: center;margin-bottom:50px ;" src="<?= ASSETS_URL ?>images/kaanepilt.png"
+	                        alt="profile
+	pic"></a></div>
+	<a id="profile_pic" href="#"> <img style="position:absolute;top: 23% ;right: 85%;" src="<?= ASSETS_URL ?>images/q.jpg"
+	                             alt="profile
+	pic"></a>
 	<h1>Kaia Konsap</h1>
 
 	<div id="my_post">
