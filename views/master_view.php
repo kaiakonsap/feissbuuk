@@ -15,13 +15,16 @@
 
 	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?= ASSETS_URL ?>css/bootstrap.css" type="text/css">
+	<script>BASE_URL = '<?=BASE_URL?>'</script>
 	<script src="<?=ASSETS_URL ?>js/vendor/modernizr-2.6.2.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="<?=ASSETS_URL?>js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+	<script src="//twitter.github.com/bootstrap/assets/js/bootstrap.min.js"></script>
 	<script src="<?=ASSETS_URL?>js/plugins.js"></script>
+	<script src="<?=ASSETS_URL?>js\vendor\bootstrap-dropdown.js"></script>
+	<script src="<?=ASSETS_URL?>js\vendor\libs.js"></script>
 	<script src="<?=ASSETS_URL?>js/main.js"></script>
-	<script>BASE_URL = '<?=BASE_URL?>'</script>
 
 	<?if(!EMPTY($this->scripts)) : ?>
 		<?foreach($this->scripts as $script) : ?>

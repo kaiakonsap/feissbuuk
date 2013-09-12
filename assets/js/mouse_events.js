@@ -11,15 +11,40 @@ $(document).ready(function(){
 	}
 	$("#cover").mouseenter(function() {
 		var d1 = document.getElementById('cover_pic');
-		d1.insertAdjacentHTML('afterend', '<button style="position: fixed;top: 25%;right: 40%" id="change">Vaheta kaanepilti</button>');
+		d1.insertAdjacentHTML('afterend',
+			'<div id="change_cover" class="btn-group" style="position:absolute;top: 23% ;right: 35%;">'+
+			'<button class="btn dropdown-toggle" data-toggle="dropdown">Vaheta kaanepilti</button>	'+
+
+	'<ul class="dropdown-menu">'+
+		'<!-- dropdown menu links -->'+
+			'<li><a href="#">Vali fotodest</a></li>'+
+				'<li><form action="upload" method="post"'+
+		'enctype="multipart/form-data"><input type="file">'+
+				'<input type="submit" name="submit" value="Submit"></form></li>'+
+			'	<li class="divider"></li>'+
+'			<li><a href="#">Another link</a></li>'+
+'			</ul>'+
+'			</div>');
+		//$("#change_cover").mouseenter(function() {
+		//	var d2 = document.getElementById('cover');
+		//	d2.insertAdjacentHTML('afterend ','<p style="position: fixed;top: 25%;right: 45%">Vali miskit</p>');
+			//ei tööta
+		//})
+	})
+
+	$("#cover").mouseleave(function() {
+			$('#change_cover').css('display','none');
+		});
+
+	$("#profile_image").mouseenter(function() {
+		var d1 = document.getElementById('profile_pic');
+		d1.insertAdjacentHTML('afterend', '<button style="position:absolute;top: 23% ;right: 85%" id="change_profile_pic">Vaheta profiilipilti</button>');
 
 	})
-	$("#change").mouseenter(function() {
-		(this).css('display','visible');
-	})
-	$("#cover").mouseleave(function() {
-			$('#change').css('display','none');
-		});
+
+	$("#profile_image").mouseleave(function() {
+		$('#change_profile_pic').css('display','none');
+	});
 
 })
 

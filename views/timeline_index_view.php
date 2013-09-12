@@ -3,9 +3,13 @@
 	<a id="cover_pic" href="#"><img style="text-align: center;margin-bottom:50px ;" src="<?= ASSETS_URL ?>images/kaanepilt.png"
 	                        alt="profile
 	pic"></a></div>
-	<a id="profile_pic" href="#"> <img style="position:absolute;top: 23% ;right: 85%;" src="<?= ASSETS_URL ?>images/q.jpg"
+	<div id="profile_image">
+	<a id="profile_pic" href="<?=BASE_URL?>timeline/upload_prev"> <img style="position:absolute;top: 23% ;right: 85%;" src="<?=
+		ASSETS_URL
+		?>images/q
+	.jpg"
 	                             alt="profile
-	pic"></a>
+	pic"></a></div>
 	<h1>Kaia Konsap</h1>
 
 	<div id="my_post">

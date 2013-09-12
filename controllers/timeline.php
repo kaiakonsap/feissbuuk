@@ -106,6 +106,12 @@ class timeline
 			$likecom_del = q("UPDATE likes_com SET deleted =1 WHERE com_id='$id' AND user_id='$user_id'");
 		}
 	}
+	function upload_prev()
+	{
+		global $request;
+		require 'views/master_view.php';
+
+	}
 
 
 }
